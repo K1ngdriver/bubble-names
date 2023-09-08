@@ -1,0 +1,22 @@
+// Faça um programa que leia n nomes inserindo-os em uma lista de forma ordenada utilizando a ideia do algoritmo
+//Insertionsort. No final, o programa deve mostrar todos os nomes ordenados alfabeticamente.
+
+const prompt = require('prompt-read')
+
+console.clear()
+
+var x = prompt('Escreva os nomes do array: ', String)
+x = x.split(',')
+
+console.log('Nomes desorganizados: ', x)
+
+for(i = 1; i <= x.length - 1; i++){// pega do índice 1, para "ler para trás", até o índice 
+    var eleito = x[i]
+    var j = i - 1
+    while(j >= 0 && x[j] > eleito){
+        x[j+1] = x[j] //aqui dentro faz a alteração no vetor sem trocar, altera o valor
+        j--
+    }
+    x[j+1] = eleito //aqui devolve o valor menor para a posição correta
+}
+console.log('Nomes organizados: ', x)
